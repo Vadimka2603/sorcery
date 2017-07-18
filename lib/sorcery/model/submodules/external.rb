@@ -84,7 +84,7 @@ module Sorcery
             if sorcery_adapter.find_authentication_by_oauth_credentials(authentications, provider, uid).nil?
               user = send(authentications).build(sorcery_config.provider_uid_attribute_name => uid,
                                                  sorcery_config.provider_attribute_name => provider)
-              user.sorcery_adapter.save(validate: false)
+              user.sorcery_adapter.save
             else
               user = false
             end
